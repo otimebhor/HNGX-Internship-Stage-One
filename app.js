@@ -1,6 +1,7 @@
 const express = require("express");
 
-const PORT = 3000;
+// const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.get("/api",  (req, res) => {
@@ -16,7 +17,7 @@ app.get("/api",  (req, res) => {
     "Saturday",
   ];
   const current_day = weekday[new Date().getDay()];
-  const current_utc_time = new Date().toISOString();
+  const current_utc_time = new Date().toISOString().split('.')[0] + 'Z';
   const github_file_url =
     "https://github.com/otimebhor/HNGX-Internship-Stage-One/blob/main/app.js";
   const github_repo_url =
